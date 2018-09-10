@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+    lista:
+      build: .
+      volumes:
+        - .:/usr/app
+      stdin_open: true
+      tty: true
