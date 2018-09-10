@@ -10,12 +10,12 @@ def plotter(values):
     plt.show()
 
 
-def tester(func, lst, qtd):
+def tester(qtd, func, *args):
     times = []
     for x in range(0, qtd):
-        copy = lst
+        copy, *params = args
         start = time.time()
-        copy = func(copy)
+        copy = func(copy, *params)
         end = time.time()
         total = end - start
         times.append(total)
