@@ -11,6 +11,8 @@ def clear():
 
 def mainMenu():
   print('1 - Criar lista aleatória')
+  print('2 - Ordenação por Quicksort')
+  print('3 - Gráfico de desempenho Quicksort')
   print('8 - Printar lista')
   print('0 - Sair')
   option = input()
@@ -19,6 +21,7 @@ def mainMenu():
 
 if __name__ == '__main__':
   lst = []
+  lst2 = []
   sorter = Sorter()
   exit = False
 
@@ -31,12 +34,19 @@ if __name__ == '__main__':
       clear()
       entry = int(input('Insira o tamanho da lista: '))
       lst = random.sample(range(0, 3*entry), entry)
+      lst2 = lst
       print('Lista criada com sucesso')
-    elif option == '7':
+    elif option == '2':
+      clear()
+      lst = lst2
+      result = sorter.timer(sorter.quicksort, lst, 0, len(lst) - 1)
+      print('Tempo gasto: ' + str(result[0]))
+      print('Lista: ' + str(lst))
+    elif option == '3':
       clear()
       qtdTeste = int(input('Insira a quantidade de testes: '))
-      # times = tester(bubble_sort, lst, qtdTeste)
-      # plotter(times)
+      times = tester(qtdTeste, sorter.quicksort, lst, 0, len(lst) - 1)
+      plotter(times)
     elif option == '8':
       clear()
       print('\n\n')
