@@ -1,5 +1,5 @@
 import time
-from math import floor
+from math import floor, sqrt
 
 class Sorter(object):
     def __init__(self):
@@ -14,9 +14,8 @@ class Sorter(object):
         return (elapsed, result)
 
     def shellSort(self, l):
-        n = len(l)
-        gap = n/2
-        
+        n = int(len(l))
+        gap = int(n/2)
         while gap > 0:
             for i in range(gap,n):
                 tmp = l[i]
@@ -25,7 +24,7 @@ class Sorter(object):
                     l[j] = l[j-gap]
                     j -= gap
                     l[j] = tmp
-            gap = gap/2
+            gap = floor(gap/2)
     
     def merge(self, lst, left, mid, right): 
         n1 = mid - left + 1
@@ -65,7 +64,7 @@ class Sorter(object):
 
     def mergeSort(self,lst,left,right): 
         if left < right: 
-            mid = (left+(right-1))/2
+            mid = floor((left+(right-1))/2)
             self.mergeSort(lst, left, mid) 
             self.mergeSort(lst, mid+1, right) 
             self.merge(lst, left, mid, right) 
@@ -86,33 +85,33 @@ class Sorter(object):
             self.quicksort(l, start, indexPivot)
             self.quicksort(l, indexPivot+1, end)
     
-    def insertion_sort(list):
+    def insertion_sort(self, lst):
+        for x in range(0, len(lst)):
+            y = x
+            while ((y != 0) and (lst[y] < lst[y-1])):
+                aux = lst[y]
+                lst[y] = lst[y-1]
+                lst[y-1] = aux
+                y -= 1
+        return lst
 
-    for x in range(0, len(list)):
-        y = x
-        while ((y != 0) and (list[y] < list[y-1])):
-            aux = list[y]
-            list[y] = list[y-1]
-            list[y-1] = aux
-            y -= 1
-    return list
 
     def hashing(self, lst):
         m = lst[0]
         for i in range(1,len(lst)):
             if(m < lst[i]):
                 m = lst[i]
-        result = [m,int(math.sqrt(len(lst)))]
+        result = [m,int(sqrt(len(lst)))]
         return result
     
     def re_hashing(self, i, code):
         return int(i/code[0]*(code[1]-1))
 
     def bucketSort(self, lst):
-        code = hashing(lst)
+        code = self.hashing(lst)
         buckets = [list() for _ in range(code[1])]
         for i in lst:
-            x = re_hashing(i, code)
+            x = self.re_hashing(i, code)
             buck = buckets[x]
             buck.append(i)
         for bucket in buckets:

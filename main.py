@@ -51,21 +51,21 @@ if __name__ == '__main__':
     elif option == '3':
       clear()
       lst = lst2
-      #result = sorter.timer(sorter.mergeSort, lst, 0, len(lst) - 1)
-      #print('Tempo gasto: ' + str(result[0]))
-      #print('Lista: ' + str(lst))
+      result = sorter.timer(sorter.mergeSort, lst, 0, len(lst) - 1)
+      print('Tempo gasto: ' + str(result[0]))
+      print('Lista: ' + str(lst))
     elif option == '4':
       clear()
       lst = lst2
-      #result = sorter.timer(sorter.bucketSort, lst, 0, len(lst) - 1)
-      #print('Tempo gasto: ' + str(result[0]))
-      #print('Lista: ' + str(lst))
+      result = sorter.timer(sorter.bucketSort, lst)
+      print('Tempo gasto: ' + str(result[0]))
+      print('Lista: ' + str(lst))
     elif option == '5':
       clear()
       lst = lst2
-      #result = sorter.timer(sorter.shellSort, lst, 0, len(lst) - 1)
-      #print('Tempo gasto: ' + str(result[0]))
-      #print('Lista: ' + str(lst))
+      result = sorter.timer(sorter.shellSort, lst)
+      print('Tempo gasto: ' + str(result[0]))
+      print('Lista: ' + str(lst))
     elif option == '6':
       clear()
       qtdTeste = int(input('Insira a quantidade de testes: '))
@@ -79,12 +79,12 @@ if __name__ == '__main__':
     elif option == '8':
       clear()
       qtdTeste = int(input('Insira a quantidade de testes: '))
-      times = tester(qtdTeste, sorter.bucketSort, lst, 0, len(lst) - 1)
+      times = tester(qtdTeste, sorter.bucketSort, lst)
       plotter(times)
     elif option == '9':
       clear()
       qtdTeste = int(input('Insira a quantidade de testes: '))
-      times = tester(qtdTeste, sorter.shellSort, lst, 0, len(lst) - 1)
+      times = tester(qtdTeste, sorter.shellSort, lst)
       plotter(times)
     elif option == '10':
       clear()
