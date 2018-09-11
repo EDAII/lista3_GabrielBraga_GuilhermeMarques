@@ -5,5 +5,8 @@ services:
       build: .
       volumes:
         - .:/usr/app
+        - /tmp/.X11-unix:/tmp/.X11-unix
       stdin_open: true
       tty: true
+      environment:
+        - DISPLAY=unix$DISPLAY

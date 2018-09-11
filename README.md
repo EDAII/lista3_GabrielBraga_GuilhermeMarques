@@ -6,9 +6,11 @@
 
 ### Rodando o projeto
 
-Builde o container:
+Execute os seguintes comandos:
 ```bash
 $ sudo docker-compose build
+$ sudo apt-get install x11-xserver-utils
+$ xhost +
 ```
 
 Rode o projeto:
